@@ -1,0 +1,5 @@
+FROM debian
+RUN apt update
+RUN DEBIAN_FRONTEND=noninteractive apt install openssh openssh-server curl git wget   -y
+RUN wget https://resource.fit2cloud.com/1panel/package/quick_start.sh
+RUN bash quick_start.sh   -y
