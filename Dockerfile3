@@ -1,0 +1,6 @@
+FROM debian
+RUN apt update
+RUN DEBIAN_FRONTEND=noninteractive apt install openssh-server curl git wget   -y
+RUN curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun   -y
+RUN docker pull budtmo/docker-android:emulator_9.0
+RUN docker run -d -p 6080:6080 -e EMULATOR_DEVICE="Nexus 7" -e WEB_VNC=true --device /dev/kvm --name android-container budtmo/docker-android:emulator_9.0
